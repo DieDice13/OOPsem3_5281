@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentStream implements Iterable<StudentGroup>{
+public class StudentStream implements Iterable<StudentGroup> {
     private List<StudentGroup> studentStreamList; // Список групп в потоке
     private int numberStream; // Номер потока
 
@@ -28,7 +28,7 @@ public class StudentStream implements Iterable<StudentGroup>{
     public void setNumberStream(int numberStream) {
         this.numberStream = numberStream;
     }
-    
+
     // Реализация интерфейса Iterator
     @Override
     public Iterator<StudentGroup> iterator() {
