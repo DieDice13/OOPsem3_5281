@@ -3,7 +3,7 @@ package Domain;
 import java.util.Iterator;
 import java.util.List;
 
-public class StudentGroup implements Iterable<Student> {
+public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>{
     private List<Student> group;
     private Integer idGroup;
 
@@ -36,39 +36,18 @@ public class StudentGroup implements Iterable<Student> {
                 '}';
     }
 
-    // @Override
-    // public Iterator<Student> iterator() {
-    //    return new Iterator<Student>() {
-
-    //     private int counter;
-
-    //     @Override
-    //     public boolean hasNext() {
-
-    //         if(counter<group.size())
-    //         {
-    //             return true;
-    //         }
-    //         else
-    //         {
-    //             return false;
-    //         }            
-    //     }
-
-    //     @Override
-    //     public Student next() {            
-    //         return group.get(counter++);
-    //     }
-        
-    //    };
-        
-    // }
-
      @Override
     public Iterator<Student> iterator() {
        return new StudentIterator(group);
         
     }
+
+    // Реализация интерфейса Comparable
+    // Возвращает группы по кол-ву студентов в группе
+    @Override
+    public int compareTo(StudentGroup o) {
+        return Integer.compare(this.group.size(), o.group.size());    
+    }
     
-    
+
 }
